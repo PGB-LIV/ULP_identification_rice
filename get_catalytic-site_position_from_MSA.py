@@ -1,9 +1,11 @@
+# This script identify the position of the 3 catalystic residues (H, C, D) on ULP proteins
+
 import os
 from Bio import AlignIO
 from Bio import SeqIO
 import pandas as pd
 
-# path to a folder containg MSA
+# path to a folder containg MSA (ClustalOmega, MAFFT, MUSCLE) files in fasta format
 folder_path = "D:/Os4530.POR.1/Os4530.POR.1/ULP_clusters/"
 
 # Can also use the length to compare
