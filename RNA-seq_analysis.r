@@ -1,3 +1,13 @@
+# Download expression values (FPKM) by submitting the ULP gene names and search in https://plantrnadb.com/ricerna/ 
+# FPKM.csv is a table of FPKM values with gene ID as columns and RNA-seq samples as rows. The last 8 columns are RNAseq data details: Tissue, Cultivar, Genotype, Treatment, Project, TotalReads, UniqueMappedRatio, ReleaseDate
+# pan_id_MSU_model.csv is a table of 4 columns: Pan_id, MSU, count_rice, and count_domain
+# note: count_rice = number of rice (out of 16) that has a gene in this pan-id
+#       count_domain = number of rice (out of 16) that has a ULP gene in this pan-id
+# example:
+#|         Pan_id	       |     MSU	    |count_rice|count_domain|
+#|Os4530.POR.1.pan0000812|LOC_Os01g02270|	8	       |    3       |
+
+
 # load library
 library(tidyverse)
 library(ggplot2)
@@ -8,7 +18,7 @@ library(gridExtra)
 library(viridis)
 
 panid <- read.csv("pan_id_MSU_model.csv") %>% separate_rows(MSU, sep = ",")
-FPKM <- read.csv("2024_ulp_MSU_model_corected_structure.csv")
+FPKM <- read.csv("FPKM.csv")
 FPKM_value <- FPKM%>% select(Sample, grep("LOC", colnames(.)))
 
 FPKM_value_selected_rice <- FPKM %>% filter(rowSums(.[,3:44] != 0) > 0) %>% 
@@ -26,7 +36,7 @@ FPKM_wild_rice <- FPKM %>% filter(str_detect(Cultivar, "nivara|rufipogon"))
 
 all_FPKM_lf <- FPKM_value_selected_rice %>% select(-UniqueMappedRatio, -ReleaseDate, -TotalReads) %>% gather(., key = "gene_id", value = "FPKM", -Sample, -SampleName, -Cultivar, -Genotype, -Treatment, -Tissue, -rice_group, -Project) %>% 
   mutate(gene_id = gsub("S","s", .$gene_id)) %>% mutate(gene_id = gsub("G","g", .$gene_id)) %>% 
-  left_join(., panid, by = c("gene_id"="MSU"))
+  left_join(., , by = c("gene_id"="MSU"))
 
 all_FPKM_lf$rice_group <- factor(all_FPKM_lf$rice_group, levels = c("1","2","3","4","5"))
 
@@ -132,7 +142,7 @@ colnames(FPKM_value_selected_forPlot) <- gsub("G","g", colnames(FPKM_value_selec
 colnames(FPKM_value_selected_forPlot) <- gsub("S","s", colnames(FPKM_value_selected_forPlot))
 
 
-col_order <- data.frame(MSU = colnames(FPKM_value_selected_forPlot)[3:44]) %>% left_join(., panid)
+col_order <- data.frame(MSU = colnames(FPKM_value_selected_forPlot)[3:44]) %>% left_join(., )
 
 #1759
 FPKM_value_selected_forPlot_japonica <- FPKM_value_selected_forPlot %>% filter(rice_group == 2)
