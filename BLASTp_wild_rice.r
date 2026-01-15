@@ -1,5 +1,10 @@
+# Download protein annotation files (fasta) of wild rice from https://oryza-ensembl.gramene.org/species.html
+# Install BLAST programs locally: https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
+# The input file is the reference ULP protein sequences from yeast and Arabidopsis in fasta format
+
 # Create the database by using the fasta file
-#makeblastdb -in Leersia_perrieri.Lperr_V1.4.pep.all.fa -dbtype prot -out Leersia_perrieri/Leersia_perrieri #
+# Run this once for each rice, using command line (bash)
+#makeblastdb -in Leersia_perrieri.Lperr_V1.4.pep.all.fa -dbtype prot -out Leersia_perrieri/Leersia_perrieri 
 #makeblastdb -in Oryza_barthii.O.barthii_v1.pep.all.fa -dbtype prot -out Oryza_barthii/Oryza_barthii
 #makeblastdb -in Oryza_brachyantha.Oryza_brachyantha.v1.4b.pep.all.fa -dbtype prot -out Oryza_brachyantha/Oryza_brachyantha
 #makeblastdb -in Oryza_glaberrima.Oryza_glaberrima_V1.pep.all.fa -dbtype prot -out Oryza_glaberrima/Oryza_glaberrima
@@ -23,7 +28,7 @@ y_lab_list <- list()
 for (i in 1:10) {
   
   blast_db = paste("./protein_databases/",genome_database[i],"/",genome_database[i], sep = "")
-  input = "./Mix-model_correct_ULP_Sc_Sp_At_Os_rm_short.fasta"
+  input = "./input.fasta"
   #evalue = 1e-6
   format = 6
   colnames <- c("qseqid",
