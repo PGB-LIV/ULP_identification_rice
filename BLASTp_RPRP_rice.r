@@ -1,4 +1,10 @@
-# Create the database by using the fasta files
+# Download protein annotation files (fasta) of RPRP rice from https://ftp.gramene.org/oryza/PanOryza/fasta/ 
+# Install BLAST programs locally: https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
+# The input file is the reference ULP protein sequences from yeast and Arabidopsis in fasta format
+
+# Create the database by using the fasta files 
+# note that the file names are not updated, see the latest names at https://ftp.gramene.org/oryza/PanOryza/fasta/
+# Run this once for each rice, using command line (bash)
 #makeblastdb -in oryza_sativair64.evd.protein.fasta -dbtype prot -out oryza_sativair64/oryza_sativair64
 #makeblastdb -in oryza_sativaazucena.evd.protein.fasta -dbtype prot -out oryza_sativaazucena/oryza_sativaazucena
 #makeblastdb -in oryza_sativa132424.evd.protein.fasta -dbtype prot -out oryza_sativa132424/oryza_sativa132424
@@ -15,7 +21,6 @@
 #makeblastdb -in oryza_mh63.evd.protein.fasta -dbtype prot -out oryza_mh63/oryza_mh63
 #makeblastdb -in oryza_zs97.evd.protein.fasta -dbtype prot -out oryza_zs97/oryza_zs97
 #makeblastdb -in oryza_sativa.evd.protein.fasta -dbtype prot -out oryza_sativa/oryza_sativa
-
 
 
 library(tidyverse)
