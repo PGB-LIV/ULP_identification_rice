@@ -1,3 +1,6 @@
+# This script produces the Figure 1
+# pangene_matrix_genes.tr.tab can be downloaded from https://zenodo.org/records/14772953 (Os4530.POR.tar.gz)
+
 # load library
 library(tidyverse)
 library(ggplot2)
@@ -8,16 +11,6 @@ library(ggh4x)
 pangene_table <- read_tsv("path_to_file/Os4530.POR.1/pangene_matrix_genes.tr.tab", col_names = T)
 pangene_table_edited <- as.data.frame(apply(pangene_table,2, str_remove_all, "gene:")) %>% select(-18)
 colnames(pangene_table_edited) <- c("Pan_id", "Nipponbare_merged", "OsAzu","OsCMeo","OsPr106","OsKeNa","OsARC", "OsZS97","OsN22","OsMH63","OsNaBo","OsLiXu","OsGoSa","OsLaMu","OsKYG", "OsIR64","OsLima")
-
-# old names
-# [1] "oryzasativanipponbaremerged","oryza_sativa_nipponbaremerged","oryza_sativa_azucena",
-# [4] "oryza_sativa_chaomeo","oryza_sativa_pr106","oryza_sativa_ketannangka",
-# [7] "oryza_sativa_arc","oryza_sativa_ZS97","oryza_sativa_n22"
-#[10] "oryza_sativa_mh63","oryza_sativa_natelboro","oryza_sativa_liuxu_chr"
-#[13] "oryza_sativa_gobolsailbalam","oryza_sativa_larhamugad","oryza_sativa_khaoyaiguang"
-#[16] "oryza_sativa_ir64","oryza_sativa_lima"
-
-
 
 Ulp_magic16_all_name <- read.csv("gene_with_ulp_catalyticSite_fullL_nonRedun_mod.csv")
 pangene_ulp <- pangene_table_edited %>% filter_all( any_vars(. %in% Ulp_magic16_all_name$Gene))
