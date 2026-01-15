@@ -1,3 +1,7 @@
+# This script measures the length between the three catalytic residues (H, C, D)
+# The ULP protein structures were predicted using AlphaFold2 and the pdb files are available at https://doi.org/10.5061/dryad.1ns1rn97f
+# talbe_of_cat-sites.csv is obtained from get_catalytic-site_position_from_MSA.py or see Table S4 
+
 import os
 import csv
 from Bio import PDB
