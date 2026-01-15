@@ -3,7 +3,7 @@
 # The input file is the reference ULP protein sequences from yeast and Arabidopsis in fasta format
 
 # Create the database by using the fasta files 
-# note that the file names are not updated, see the latest names at https://ftp.gramene.org/oryza/PanOryza/fasta/
+# note that the file names are not updated, see the latest names at https://ftp.gramene.org/oryza/PanOryza/fasta/ and https://panoryza.org/node/6
 # Run this once for each rice, using command line (bash)
 #makeblastdb -in oryza_sativair64.evd.protein.fasta -dbtype prot -out oryza_sativair64/oryza_sativair64
 #makeblastdb -in oryza_sativaazucena.evd.protein.fasta -dbtype prot -out oryza_sativaazucena/oryza_sativaazucena
