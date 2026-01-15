@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# dowload dockers files from https://hub.docker.com/u/pegi3s
+# run this script in a folder containing fasta files of ULP from yeast, Arabidopsis and RPRP rice
+
 for x in *_Sc_At.fasta; 
 do
 A=${x%.*} # remove .fasta surfice; if only once ##should check the file name before
