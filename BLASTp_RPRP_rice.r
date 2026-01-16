@@ -1,6 +1,6 @@
 # Download protein annotation files (fasta) of RPRP rice from https://ftp.gramene.org/oryza/PanOryza/fasta/ 
 # Install BLAST programs locally: https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
-# The input file is the reference ULP protein sequences from yeast and Arabidopsis in fasta format
+# The input file is the reference ULP protein sequences from yeast and Arabidopsis in fasta format (https://doi.org/10.5061/dryad.1ns1rn97f)
 
 # Create the database by using the fasta files 
 # note that the file names are not updated, see the latest names at https://ftp.gramene.org/oryza/PanOryza/fasta/ and https://panoryza.org/node/6
