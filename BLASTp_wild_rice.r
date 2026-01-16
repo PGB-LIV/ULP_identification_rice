@@ -1,6 +1,6 @@
 # Download protein annotation files (fasta) of wild rice from https://oryza-ensembl.gramene.org/species.html
 # Install BLAST programs locally: https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/
-# The input file is the reference ULP protein sequences from yeast and Arabidopsis in fasta format
+# The input file is the reference ULP protein sequences from yeast and Arabidopsis in fasta format (https://doi.org/10.5061/dryad.1ns1rn97f)
 
 # Create the database by using the fasta file
 # Run this once for each rice, using command line (bash)
